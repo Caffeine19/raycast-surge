@@ -1,4 +1,4 @@
-import { getPreferenceValues, showToast, showHUD, ToastStyle } from "@raycast/api"
+import { getPreferenceValues, showToast, showHUD, Toast } from "@raycast/api"
 import api from "./api"
 
 export default async function Command() {
@@ -19,10 +19,11 @@ export default async function Command() {
     const action = newStatus ? "Enabled" : "Disabled"
     const icon = newStatus ? "💚" : "🚫"
     await showHUD(`${icon} System Proxy ${action}`)
-  } catch (err) {
+  } catch (error) {
+    console.log("🚀 ~ toggle-proxy.ts:23 ~ Command ~ error:", error)
     // Show error message
     await showToast(
-      ToastStyle.Failure,
+      Toast.Style.Failure,
       "Failed to Toggle System Proxy",
       "Please check your X-Key, port and function availability"
     )
