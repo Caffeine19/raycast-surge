@@ -1,4 +1,4 @@
-import { ActionPanel, Icon, List, getPreferenceValues, showHUD, showToast, ToastStyle, Color } from "@raycast/api"
+import { ActionPanel, Icon, List, getPreferenceValues, showHUD, showToast, Color, Toast } from "@raycast/api"
 import { useState, useEffect } from "react"
 import api from "./api"
 
@@ -40,7 +40,7 @@ export default function Command() {
         setSelectedOptions(currentSelections)
       } catch (err) {
         console.error("Failed to fetch policy data:", err)
-        await showToast(ToastStyle.Failure, "Failed to fetch proxy policies", "Please check your X-Key and port")
+        await showToast(Toast.Style.Failure, "Failed to fetch proxy policies", "Please check your X-Key and port")
       } finally {
         setIsLoading(false)
       }
@@ -62,9 +62,10 @@ export default function Command() {
         newSelectedOptions[groupIndex] = optionName
         setSelectedOptions(newSelectedOptions)
       }
-    } catch (err) {
+    } catch (error) {
+      console.error("🚀 ~ switch-proxy.tsx:66 ~ switchProxy ~ error:", error)
       await showToast(
-        ToastStyle.Failure,
+        Toast.Style.Failure,
         "Failed to switch proxy",
         "Please check your X-Key, port and function availability"
       )
