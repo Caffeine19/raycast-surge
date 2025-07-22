@@ -5,8 +5,10 @@
   "description": "Switch outbound mode, change proxy tunnel and other Surge settings from Raycast.",
   "icon": "AppIcon.png",
   "author": "ysj151215",
+  "owner": "CaffeineCat",
   "contributors": [
-    "Hopsken"
+    "Hopsken",
+    "CaffeineCat"
   ],
   "license": "MIT",
   "commands": [
@@ -14,6 +16,27 @@
       "name": "index",
       "title": "Surge",
       "description": "Switch outbound mode, change proxy tunnel and other Surge settings from Raycast.",
+      "mode": "view"
+    },
+    {
+      "name": "toggle-proxy",
+      "title": "Toggle Proxy",
+      "subtitle": "Surge",
+      "description": "Toggle Surge \"Set as System Proxy\" setting",
+      "mode": "no-view"
+    },
+    {
+      "name": "switch-mode",
+      "title": "Switch mode",
+      "subtitle": "Surge",
+      "description": "Switch outbound mode",
+      "mode": "view"
+    },
+    {
+      "name": "switch-proxy",
+      "title": "Switch proxy",
+      "subtitle": "Surge",
+      "description": "Switch between proxy",
       "mode": "view"
     }
   ],
@@ -58,6 +81,7 @@
     "axios": "^0.24.0"
   },
   "devDependencies": {
+    "@types/react": "^19.1.8",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^7.32.0",
